@@ -1,0 +1,28 @@
+{
+  "name": "zk-starter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile": "bash ./circuit/scripts/compile_circuit.sh",
+    "genKeyPhase1": "bash ./circuit/scripts/generate_keys_phase1.sh",
+    "genKeyPhase2Plonk": "bash ./circuit/scripts/generate_keys_phase2_plonk.sh",
+    "genKeyPhase2Groth": "bash ./circuit/scripts/generate_keys_phase2_groth16.sh",
+    "genProofPlonk": "bash ./circuit/scripts/generate_proof_plonk.sh",
+    "genProofGroth": "bash ./circuit/scripts/generate_proof_groth16.sh",
+    "verifyProofPlonk": "bash ./circuit/scripts/verify_proof_plonk.sh",
+    "verifyProofGroth": "bash ./circuit/scripts/verify_proof_groth16.sh",
+    "genContract": "bash ./circuit/scripts/generate_contract.sh",
+    "genCalldata": "bash ./circuit/scripts/generate_calldata.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "circomlib": "^2.0.5",
+    "snarkjs": "0.4.22"
+  },
+  "devDependencies": {
+    "hardhat": "^2.12.2"
+  }
+}
