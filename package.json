@@ -12,7 +12,8 @@
     "genProofGroth": "bash ./circuit/scripts/generate_proof_groth16.sh",
     "verifyProofPlonk": "bash ./circuit/scripts/verify_proof_plonk.sh",
     "verifyProofGroth": "bash ./circuit/scripts/verify_proof_groth16.sh",
-    "genContract": "bash ./circuit/scripts/generate_contract.sh",
+    "bumpSolidity": "node scripts/bump-solidity.js",
+    "genContract": "bash ./circuit/scripts/generate_contract.sh && yarn bumpSolidity",
     "genCalldata": "bash ./circuit/scripts/generate_calldata.sh"
   },
   "keywords": [],
