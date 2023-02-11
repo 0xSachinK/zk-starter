@@ -2,6 +2,10 @@
 # echo "Verifying the Ptau file"
 # ../node_modules/.bin/snarkjs powersoftau verify $1 # Not a necessary step cause downloaded from official repos
 cd circuit
+
+# Are we missing a prepare command here?
+# snarkjs powersoftau prepare phase2 pot12_0001.ptau pot12_final.ptau -v
+
 # Setup (GROTH16 does require a specific trusted cermony for each circuit); Create the verification key
 echo "Creating circuit specific keys"
 ../node_modules/.bin/snarkjs groth16 setup circuit.r1cs $1 circuit_0000.zkey
