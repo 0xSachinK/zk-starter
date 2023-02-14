@@ -45,7 +45,7 @@ describe("Test circuit", function async() {
             path.join(__dirname, "../circuit/circuit.circom"),
             {
                 recompile: false,
-                output: path.join(__dirname, "../circuit/"),    // specify path to already compiled circuit and c files
+                output: path.join(__dirname, "../"),    // specify path to already compiled circuit and c files
                 verbose: true
             }
         );
