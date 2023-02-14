@@ -10,3 +10,6 @@ circuit/*.ptau
 circuit/verification_key.json
 circuit/circuit_final.zkey
 circuit/circuit_js
+
+build/
+circuit/circuit_cpp/

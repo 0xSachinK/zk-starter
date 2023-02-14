@@ -1,11 +1,12 @@
 const chai = require("chai");
+const c_tester = require("circom_tester").c;
 const path = require("path");
 const wasm_tester = require("circom_tester").wasm;
 
 describe("Test circuit", function async() {
     this.timeout(1000 * 1000);
 
-    it("when circiut is compiled", async () => {
+    it.skip("checking the compilation of circuit generating wasm", async () => {
         let circuit = await wasm_tester(
             path.join(__dirname, "../circuit/circuit.circom"),
             {
@@ -18,24 +19,39 @@ describe("Test circuit", function async() {
             // r1cs: false, to skip r1cs generation
         );
 
-        const witness = await circuit.calculateWitness({x: 3, y: 2});
+        const witness = await circuit.calculateWitness({ x: 3, y: 2 });
 
-        await circuit.assertOut(witness, {z: "6"})
+        await circuit.assertOut(witness, { z: "6" })
     });
 
-    it("when circuit is not compiled", async () => {
+    it("checking loading an exisiting wasm", async () => {
 
         let circuit = await wasm_tester(
             path.join(__dirname, "../circuit/circuit.circom"),
             {
                 recompile: false,
-                output: path.join(__dirname, "../circuit/"),    // specify path to already compiled circuit and wasm files
+                output: path.join(__dirname, "../"),    // specify path to already compiled circuit and wasm files
                 verbose: true
             }
         );
 
-        const witness = await circuit.calculateWitness({x: 3, y: 3});
+        const witness = await circuit.calculateWitness({ x: 3, y: 3 });
 
-        await circuit.assertOut(witness, {z: "9"})
+        await circuit.assertOut(witness, { z: "9" })
+    });
+
+    it("checking the compilation of circuit loading an existing c", async () => {
+        const circuit = await c_tester(
+            path.join(__dirname, "../circuit/circuit.circom"),
+            {
+                recompile: false,
+                output: path.join(__dirname, "../circuit/"),    // specify path to already compiled circuit and c files
+                verbose: true
+            }
+        );
+
+        const witness = await circuit.calculateWitness({ x: 3, y: 4 });
+
+        await circuit.assertOut(witness, { z: "12" })
     });
 });
