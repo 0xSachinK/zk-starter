@@ -1,7 +1,7 @@
 node_modules/
 circuit.sym 
 circuit/proof.json
-circuit/input.json
+# circuit/input.json
 circuit/public.json
 circuit/*.ptau
 
